@@ -8,6 +8,10 @@ struct Main: ParsableCommand {
         let command = try run(command: "ruby test.rb")
         print(command.0)
         print(command.1)
+
+        let command2 = try run(command: "echo THIS IS A TEST")
+        print(command2.0)
+        print(command2.1)
     }
 
     @discardableResult
