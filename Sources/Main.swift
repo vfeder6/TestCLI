@@ -5,12 +5,9 @@ import Foundation
 struct Main: ParsableCommand {
 
     public func run() throws {
-        let command = try run(command: "pwd")
+        let command = try run(command: "ruby ../test.rb")
         print(command.0)
         print(command.1)
-        let command2 = try run(command: "ls -la")
-        print(command2.0)
-        print(command2.1)
     }
 
     @discardableResult
