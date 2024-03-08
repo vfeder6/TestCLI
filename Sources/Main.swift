@@ -5,7 +5,7 @@ import Foundation
 struct Main: ParsableCommand {
 
     public func run() throws {
-        let command = try run(command: "ruby ../test.rb")
+        let command = try run(command: "ruby test.rb")
         print(command.0)
         print(command.1)
     }
