@@ -4,7 +4,11 @@ import Foundation
 struct Main {
 
     static func main() throws {
-        try run(command: "pwd")
+        do {
+            try run(command: "pwd")
+        } catch {
+            print(error.localizedDescription)
+        }
     }
 
     @discardableResult
