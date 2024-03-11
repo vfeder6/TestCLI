@@ -20,6 +20,6 @@ let package = Package(
         .testTarget(
             name: "TestCLITests",
             dependencies: ["TestCLI"]
-        ),
+        )
     ]
 )
