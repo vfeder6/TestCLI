@@ -4,7 +4,7 @@ import Foundation
 struct Main {
 
     static func main() throws {
-        let command = try run(command: "pwd")
+        let command = try run(command: "touch Localizable.xcstrings")
         print(command.0)
     }
 
