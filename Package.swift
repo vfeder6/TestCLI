@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "TestCLI",
     products: [
-        .library(
+        .executable(
             name: "TestCLI",
             targets: ["TestCLI"]
         )
@@ -14,7 +14,7 @@ let package = Package(
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMajor(from: "1.3.0")),
     ],
     targets: [
-        .target(
+        .executableTarget(
             name: "TestCLI",
             dependencies: [
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
