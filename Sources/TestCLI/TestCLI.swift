@@ -1,15 +1,16 @@
+import ArgumentParser
 import Foundation
 
 @main
-struct Main {
+struct TestCLI: ParsableCommand {
 
-    static func main() throws {
+    func run() throws {
         let command = try run(command: "touch Localizable.xcstrings")
         print(command.0)
     }
 
     @discardableResult
-    private static func run(command: String) throws -> (String, Int32) {
+    private func run(command: String) throws -> (String, Int32) {
         let task = Process()
         let pipe = Pipe()
 
