@@ -1,32 +1,9 @@
 import ArgumentParser
-import Foundation
 
 @main
 struct TestCLI: ParsableCommand {
 
     func run() throws {
-        let command = try run(command: "touch Localizable.xcstrings")
-        print(command.0)
-    }
-
-    @discardableResult
-    private func run(command: String) throws -> (String, Int32) {
-        let task = Process()
-        let pipe = Pipe()
-
-        task.standardOutput = pipe
-        task.standardError = pipe
-        task.arguments = ["--login", "-c", command]
-        task.executableURL = URL(fileURLWithPath: "/bin/zsh")
-        task.standardInput = nil
-
-        try task.run()
-
-        let data = pipe.fileHandleForReading.readDataToEndOfFile()
-        let output = String(data: data, encoding: .utf8)!
-
-        task.waitUntilExit()
-
-        return (output, task.terminationStatus)
+        print("It works!")
     }
 }

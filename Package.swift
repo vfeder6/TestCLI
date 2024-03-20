@@ -4,11 +4,12 @@ import PackageDescription
 
 let package = Package(
     name: "TestCLI",
+    platforms: [
+        .iOS(.v16)
+    ],
     products: [
-        .executable(
-            name: "TestCLI",
-            targets: ["TestCLI"]
-        )
+        .executable(name: "TestCLI", targets: ["TestCLI"]),
+        .plugin(name: "TestCLIPlugin", targets: ["TestCLIPlugin"])
     ],
     dependencies: [
         .package(url: "https://github.com/apple/swift-argument-parser.git", .upToNextMajor(from: "1.3.0")),
@@ -20,9 +21,12 @@ let package = Package(
                 .product(name: "ArgumentParser", package: "swift-argument-parser")
             ]
         ),
-        .testTarget(
-            name: "TestCLITests",
-            dependencies: ["TestCLI"]
+        .plugin(
+            name: "TestCLIPlugin",
+            capability: .buildTool(),
+            dependencies: [
+                .target(name: "TestCLI")
+            ]
         )
     ]
 )
